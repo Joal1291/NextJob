@@ -1,0 +1,780 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+/* ---paramètres generaux */
+body{
+    @apply
+   bg-white
+    h-screen
+}
+
+/* ---Navigation--- */
+.navbar{
+   @apply
+    flex
+    w-full
+    h-28
+    justify-around
+    items-center
+    border-b-2
+    border-black
+    backdrop-blur-xl
+    sticky
+    top-0
+    z-50
+}
+
+/* ---Home Page--- */
+.homepage{
+    @apply
+    h-full
+    flex
+    flex-col
+    justify-center
+    items-center
+    absolute
+    top-0
+}
+.presentation{
+    @apply
+    flex
+    justify-around
+    items-center
+    bg-white
+    opacity-60
+    text-center
+    text-2xl
+    w-3/4
+    z-20
+    p-10
+    rounded-full
+    shadow-2xl
+    shadow-black
+    relative
+    top-10
+}
+.log{
+    @apply
+    flex
+    w-1/4
+    h-32
+    justify-evenly
+    items-center
+    mt-2
+    text-xl
+}
+.homebutton{
+    @apply
+    bg-white
+    p-5
+    rounded-3xl
+    opacity-80
+    shadow-2xl
+    shadow-black
+}
+
+/* ---Home Background--- */
+.bg1{
+    background-image: url('../public/image/homebg1.jpg');
+    background-size: 1900px auto;
+    background-position:0vw 44%;
+    @apply
+    absolute
+    overflow-hidden
+    top-80
+    left-24
+    h-2/5
+    w-1/4
+    z-10
+    shadow-2xl
+    shadow-black
+}
+.bg2{
+    background-image: url('../public/image/homebg1.jpg');
+    background-size: 1900px auto;
+    background-position:-18vw 40%;
+    @apply
+    absolute
+    overflow-hidden
+    top-44
+    left-1/4
+    h-2/3
+    w-1/2
+    z-20
+    shadow-2xl
+    shadow-black
+}
+.bg3{
+    background-image: url('../public/image/homebg1.jpg');
+    background-size: 1900px auto;
+    background-position:-52vw 43%;
+    @apply
+    absolute
+    overflow-hidden
+    top-64
+    right-10
+    h-2/4
+    w-2/5
+    z-10
+    shadow-2xl
+    shadow-black
+}
+
+/* ---Main css--- */
+main{
+    @apply
+    flex
+    flex-col
+    p-20
+    w-full
+    items-center
+    justify-evenly
+}
+
+/* ---Form Sign and log--- */
+.logandsign{
+    @apply
+    flex
+    flex-col
+    justify-evenly
+    items-center
+    w-2/3
+    h-full
+    bg-white
+    rounded-3xl
+    shadow-2xl
+    shadow-slate-700
+}
+.labells{
+    @apply
+    flex
+    w-3/4
+    bg-black
+    opacity-50
+    rounded-3xl
+    shadow-xl
+}
+.spanls{
+    @apply
+    w-1/3
+    bg-black
+    text-white
+    opacity-50
+    border-4
+    p-3
+    rounded-l-3xl
+    text-center
+}
+.inputls{
+    @apply
+    border-2
+    p-3
+    rounded-r-3xl
+    w-2/3
+}
+
+/* ---Form Create--- */
+.create{
+    @apply
+    flex
+    flex-col
+    justify-between
+    items-center
+    min-h-screen
+    w-3/4
+    rounded-3xl
+    border-2
+    border-black
+    overflow-hidden
+
+}
+.create > h2 {
+    background-image: url('../public/image/createimg.jpg');
+    background-size: cover;
+    background-position: 0vw 60%;
+    @apply
+    h-64
+    w-full
+    rounded-t-2xl
+    flex
+    justify-center
+    items-center
+    text-6xl
+    drop-shadow-2xl
+    text-white
+    border-b-2
+    border-b-black
+}
+.create > label{
+    @apply
+    flex
+    items-center
+    w-full
+    pt-10
+    pb-10
+    pr-5
+    pl-5
+    m-5
+}
+.create > label > span{
+    @apply
+    text-center
+    w-1/3
+    bg-white
+}
+.create > label > input{
+    @apply
+    w-2/3
+}
+.create >label>select{
+    @apply
+    w-2/3
+    border-2
+    rounded-3xl
+    border-black
+    bg-white
+}
+.create >label>select>option{
+    @apply
+    bg-white
+}
+.create > button{
+    @apply
+    p-5
+    w-1/6
+    bg-black
+    text-white
+    text-2xl
+    drop-shadow-xl
+    m-10
+    rounded-full
+}
+
+/* ---Profil Page--- */
+.profilcontainer{
+    @apply
+    flex
+    flex-col
+    items-center
+    h-screen
+    w-3/4
+    rounded-3xl
+    border-2
+    border-black
+    overflow-hidden
+}
+.profilcontainer > h2{
+    background-image: url('../public//image//profilpage.jpg');
+    background-size: cover;
+    background-position: 0vw 48%;
+    @apply
+    w-full
+    h-1/4
+    rounded-t-2xl
+    flex
+    justify-center
+    items-center
+    text-6xl
+    drop-shadow-2xl
+    text-white
+    border-b-2
+    border-b-black
+}
+.profilcontainer > div{
+    @apply
+    flex
+    flex-col
+    h-3/4
+    w-full
+}
+.profilcontainer > div > ul {
+    @apply
+    flex
+    justify-around
+    items-center
+    w-full
+    h-1/5
+    border-b-2
+    border-black
+}
+.profilcontainer > div > ul >li{
+    @apply
+    w-1/3
+    text-center
+    hover:bg-black
+    hover:text-white
+    transition-all
+    duration-500
+    cursor-pointer
+}
+.infoprofil{
+    @apply
+    h-4/5
+    flex
+    flex-col
+}
+.infoprofil > label{
+    @apply
+    flex
+    h-1/4
+    w-full
+    items-center
+    
+}
+.infoprofil > label > span{
+    @apply
+    w-1/3
+    h-2/4
+    flex
+    items-center
+    justify-center
+    border-b-2
+    border-black
+}
+.infoprofil > label > p{
+    @apply
+    w-2/3
+    text-center
+}
+.infoprofil > label > input {
+    @apply
+    w-1/3
+    border-b-2
+    border-l-2
+    p-5
+    ml-20
+    border-black  
+}
+.infoprofil > button{
+    @apply
+    h-1/4
+    hover:bg-black
+    hover:text-white
+    transition-all
+    duration-500
+}
+.passwordprofil{
+    @apply
+    flex
+    justify-center
+    items-center
+    h-4/5
+    w-full
+}
+.passwordbutton{
+    @apply
+    h-1/5
+    w-2/5
+    p-5
+    bg-black
+    text-white
+    shadow-xl
+    shadow-gray-500
+    rounded-lg
+    hover:bg-white
+    hover:text-black
+    transition-all
+    duration-150
+}
+
+/* ---Admin Page--- */
+.admin{
+    @apply
+    w-full
+    h-fit
+    border-2
+    border-black
+    rounded-3xl
+    overflow-hidden
+}
+.adminnav{
+    background-image: url(../public/image/admin.jpg);
+    background-size: cover;
+    background-position: 0vw 90%;
+    @apply
+    flex
+    justify-evenly
+    items-center
+    h-60
+    w-full
+    bg-slate-500
+    border-b-2
+    border-black
+}
+.adminnav > button{
+    @apply
+    text-3xl
+    text-white
+    rounded-2xl
+    p-5
+    hover:shadow-2xl
+    hover:shadow-black
+    hover:bg-white
+    hover:text-black
+    transition-all
+    duration-300
+}
+.admincontainer{
+    @apply
+    flex
+    flex-col
+    justify-center
+    items-center
+    w-full
+    h-full
+    p-10
+}
+.admincard{
+    @apply
+    w-5/6
+    h-40
+    mt-5
+    mb-5
+    p-5
+    border-2
+    border-black
+    rounded-2xl
+    shadow-2xl
+    shadow-slate-700
+    flex
+    justify-around
+    items-center
+
+}
+.admincardtitle{
+    @apply
+    text-2xl
+    w-2/4
+}
+.admincardnumber{
+    @apply
+    text-xl
+    w-1/4
+}
+
+/* ---Button--- */
+.btn-admin{
+    @apply
+    flex
+    justify-around
+    items-center
+    bg-white
+    p-3
+    rounded-xl
+    text-white
+    bg-black
+}
+.buttoncard{
+    @apply
+    flex
+    flex-col
+    h-full
+    w-1/5
+    justify-around
+}
+.btn-admin-post{
+    @apply
+    flex
+    justify-around
+    items-center
+    bg-white
+    p-3
+    rounded-xl
+    text-white
+    bg-black
+    w-28
+}
+
+
+/* =========== Lény =========== */
+/* jobs */
+.jobs-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 50px;
+  
+  }
+  
+  .jobs-container--left {
+    flex: 2.5;
+  
+  }
+  
+  .jobList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  
+  }
+  
+  .jobs-container--right {
+    border: 2px solid #e7e7e9;
+    flex: 1;
+    border-radius: 10px;
+    padding: 32px;
+  
+  }
+  
+  /* job card */
+  .job:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  
+  .job:hover .job-content--right {
+    opacity: 0;
+  }
+  
+  .job:hover .job-btn-group {
+    opacity: 1;
+  }
+  
+  .job {
+    position: relative;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    border: 1px solid #e7e7e9;
+  
+    transition: box-shadow 200ms ease;
+  }
+  
+  .job-btn-group {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  
+  .job-logo {
+    border-radius: 4px;
+    height: 70px;
+    object-fit: cover;
+  }
+  
+  .job-content {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    height: 100%;
+  }
+  
+  .job-content--right {
+    align-items: end;
+    flex-shrink: 0;
+    transition: opacity 200ms ease;
+  }
+  
+  .job-content--left {
+    flex: 1;
+    overflow: hidden;
+    width: 50px;
+  }
+  
+  .job-content--left>* {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  
+  .job-location {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #1d1d1d;
+  }
+  
+  .job-title {
+    color: #121212;
+    font-size: 1.5rem;
+  }
+  
+  .job-content--left,
+  .job-content--right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  /* searchBar */
+  .searchBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #e7e7e9;
+  }
+  
+  .searchBar>input {
+    background: none;
+    outline: none;
+    flex: 1;
+  }
+  
+  /* pagination */
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  
+  .pagination>span {
+    cursor: pointer;
+  }
+  
+  .pagination>span:not(:nth-child(1), :last-child) {
+    background-color: #1d1d1d;
+    height: 20px;
+    width: 20px;
+  
+    border-radius: 50%;
+  
+    color: #fff;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  /* job details */
+  .job-details {
+    display: flex;
+    gap: 30px;
+  
+    margin-top: 20px;
+  }
+  
+  .job-details--left {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .job-details--right {
+    height: fit-content;
+  }
+  
+  .job-details--left>h2 {
+    font-size: 1.5rem;
+  }
+  
+  .job-details--left>button {
+    width: fit-content;
+    border: 1px solid #e7e7e9;
+    border-radius: 50px;
+    color: #1d1d1d;
+    font-size: 0.75rem;
+  }
+  
+  .job-details--left>.btn-pill {
+    width: fit-content;
+    border: 1px solid #e7e7e9;
+    border-radius: 50px;
+    color: #1d1d1d;
+    font-size: 0.75rem;
+    transition: border 200ms ease;
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    align-items: center;
+  }
+
+  .btn-secondary{
+    display: flex;
+    gap: 20px;
+    padding: 7px 17px;
+    align-items: center;
+    background-color: #e7e7e9;
+    border-radius: 8px;
+  }
+  
+  .job-details--left>.btn-pill:hover {
+    border: 1px solid #cccccc;
+  }
+  
+  .job-details--right {
+    flex: 1;
+    border: 1px solid #e7e7e9;
+    border-radius: 12px;
+  
+    padding: 30px;
+  
+  
+  }
+  
+  .job-details--employer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+  
+    border-bottom:1px solid #e7e7e9;
+  }
+  
+  .job-details--employer>img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .job-details--employer>h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Exemple de styles CSS pour le contenu Markdown */
+  .markdown-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .markdown-container h1{
+    font-size: 1.5rem;
+    margin-bottom: 17px;
+  }
+  .markdown-container h2{
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+  
+  }
+  
+  .job-details--info{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .job-details--info>div>p{
+    color: #1d1d1d;
+  }
+  
+  @media (max-width: 1000px) {
+    .jobs-container {
+      flex-direction: column;
+    }
+  
+    .jobs-container--right {
+      order: -1;
+    }
+  
+    .job-details{
+      flex-direction: column;
+    }
+  }
