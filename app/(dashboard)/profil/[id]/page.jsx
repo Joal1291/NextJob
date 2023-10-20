@@ -15,9 +15,6 @@ async function getProfil(id){
   }
   return Profile[0]
 }
-// const handleSubmit = async (e, Name, LastName, Tel) => {
-//   e.preventDefault()
-// }
 
 
 export default async function profilcandidat({params}) {

@@ -15,9 +15,9 @@ export default function Profil({user}) {
     const [modifyPassword, setModifyPassword] = useState(false)
     const [modifyInfo, setModifyInfo] = useState(false)
     const [confirm, setConfirm] = useState(false)
-    const [FirstName, setFirstName] = useState('')
-    const [LastName, setLastName] = useState('')
-    const [Tel, setTel] = useState('')
+    const [FirstName, setFirstName] = useState(user.FirstName)
+    const [LastName, setLastName] = useState(user.LastName)
+    const [Tel, setTel] = useState(user.Tel)
 
 
     const handleClick = (value) => {
