@@ -2,10 +2,11 @@
 
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 
-export default function CreateForm({page}) {
+export default function CreateForm({page , user}) {
     const router = useRouter()
+    console.log(user)
 
     //-----Job Form
     const [Title, setTitle] = useState('')
@@ -13,6 +14,8 @@ export default function CreateForm({page}) {
     const [Location, setLocation] = useState('')
     const [Salary, setSalary] = useState('')
     const [Type, setType] = useState('')
+    const [EmployerId, setEmployerId] = useState(user.id)
+    let OrganizationId = 1
     //-----Profile Form
     const [FirstName, setFirstName] = useState('')
     const [LastName, setLastName] = useState('')
@@ -47,7 +50,7 @@ export default function CreateForm({page}) {
     const handleSubmitJob = async (e) => {
         e.preventDefault()
 
-        let formValue = {Title, Description, Location, Salary, Type}
+        let formValue = {Title, Description, Location, Salary, Type, EmployerId, OrganizationId}
         const response = await fetch(`http://localhost:3000/api/admin/${page}`, {
             method: "POST",
             headers: {

@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation"
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 
 import { BsPencil } from '@react-icons/all-files/bs/BsPencil'
+import Link from "next/link"
 
 import DeleteButton from "./DeleteButton"
-import ModifyButton from "./ModifyButon"
 import CreateForm from "./CreateForm"
-import ModifyForm from "./ModifyForm"
+// import ModifyForm from "./ModifyForm"
 
-export default function Admin({profileData, applicationData, jobData}) {
+export default function Admin({profileData, applicationData, jobData, user}) {
     const router = useRouter()
 
     const [parDefault, setParDefault] = useState(true)
@@ -69,7 +69,7 @@ export default function Admin({profileData, applicationData, jobData}) {
             setModifyProfile(false)
         }else if(value == 'modifyJob'){
             setProfile(false)
-            setJob(false)
+            setJob(true)
             setApplication(false)
             setParDefault(false)
             setCreateJob(false)
@@ -77,7 +77,7 @@ export default function Admin({profileData, applicationData, jobData}) {
             setModifyJob(true)
             setModifyProfile(false)
         }else if(value == 'moidifyProfile'){
-            setProfile(false)
+            setProfile(true)
             setJob(false)
             setApplication(false)
             setParDefault(false)
@@ -110,29 +110,38 @@ export default function Admin({profileData, applicationData, jobData}) {
                         Créer
                     </button>
                     {profileData.map((profil) => (
-                        <div key={profil.Id} className="admincard">
-                            <div className="admincardtitle">
-                                <h3>{profil.FirstName} {profil.LastName}</h3>
-                                <p>
-                                    {profil.Employer &&(
-                                    <span>Cette utilisateur et un candidat</span>
-                                    )}
-                                    {!profil.Employer && (
-                                        <span>Cette utilisateur est une entreprise</span>
-                                    )}
-                                </p>
+                        <>
+                            <div key={profil.Id} className="admincard">
+                                <div className="admincardtitle">
+                                    <h3>{profil.FirstName} {profil.LastName}</h3>
+                                    <p>
+                                        {profil.Employer &&(
+                                        <span>Cette utilisateur et un candidat</span>
+                                        )}
+                                        {!profil.Employer && (
+                                            <span>Cette utilisateur est une entreprise</span>
+                                        )}
+                                    </p>
+                                </div>
+                                <div className="admincardnumber">
+                                    Contact: {profil.Tel}
+                                </div>
+                                <div className="buttoncard">
+                                    <DeleteButton id={profil.Id} page={'profile'}/>
+                                    <Link href={`/admin/modifyprofile/${profil.Id}`}>
+                                        <button className="btn-admin" onClick={(e) => handleClick('modifyProfile')}>
+                                            <BsPencil />
+                                            Modifier
+                                        </button>
+                                    </Link>
+                                    
+                                </div>
                             </div>
-                            <div className="admincardnumber">
-                                Contact: {profil.Tel}
-                            </div>
-                            <div className="buttoncard">
-                                <DeleteButton id={profil.Id} page={'profile'}/>
-                                <button className="btn-admin" onClick={(e) => handleClick('modifyProfile')}>
-                                    <BsPencil />
-                                    Modifier
-                                </button>
-                            </div>
-                        </div>
+                            {modifyProfile &&(
+                                <ModifyForm  page={'profile'} profile={profil}/>
+                            )}
+                        </>
+                        
                     ))}
                     </>
                 )}
@@ -152,26 +161,30 @@ export default function Admin({profileData, applicationData, jobData}) {
                         Créer
                     </button>
                     {jobData.map((job) => (
-                        <div key={job.Id} className="admincard">
-                            <div className="admincardtitle">
-                                <h3>{job.Title} en {job.Type}</h3>
-                                <p>
-                                    {job.Description.slice(0, 100)}...
-                                </p>
+                        <>
+                            <div key={job.Id} className="admincard">
+                                <div className="admincardtitle">
+                                    <h3>{job.Title} en {job.Type}</h3>
+                                    <p>
+                                        {job.Description.slice(0, 100)}...
+                                    </p>
+                                </div>
+                                <div className="admincardnumber">
+                                    <p>Location: {job.Location}</p> 
+                                    <p>Salaire: {job.Salary}</p>
+                                </div>
+                                <div className="buttoncard">
+                                    <DeleteButton id={job.Id} page={'job'}/>
+                                    <Link href={`/admin/modifyjob/${job.Id}`}>
+                                        <button className="btn-admin" onClick={(e) => handleClick('modifyJob')}>
+                                            <BsPencil />
+                                            Modifier
+                                        </button>
+                                    </Link>
+                                    
+                                </div>
                             </div>
-                            <div className="admincardnumber">
-                                <p>Location: {job.Location}</p> 
-                                <p>Salaire: {job.Salary}</p>
-                            </div>
-                            <div className="buttoncard">
-                                <DeleteButton id={job.Id} page={'job'}/>
-                                <button className="btn-admin" onClick={(e) => handleClick('modifyJob')}>
-                                    <BsPencil />
-                                    Modifier
-                                </button>
-                            </div>
-                        </div>
-                    
+                        </>
                     ))}
                 </>
                 )}
@@ -189,24 +202,23 @@ export default function Admin({profileData, applicationData, jobData}) {
                         Créer
                     </button> */}
                     {applicationData.map((appli) => (
-                        <div key={appli.Id} className="admincard">
-                            <div className="admincardtitle">
-                                <p>
-                                    Identifiant Candidat: <br />{appli.CandidateId}
-                                </p>
+                            <div key={appli.Id} className="admincard">
+                                <div className="admincardtitle">
+                                    <p>
+                                        Identifiant Candidat: <br />{appli.CandidateId}
+                                    </p>
+                                </div>
+                                <div className="admincardnumber">
+                                    <p>Identifiant Job: {appli.JobId}</p> 
+                                </div>
+                                <div className="buttoncard">
+                                    <DeleteButton id={appli.Id} page={'application'}/>
+                                    {/* <button className="btn-admin-post" onClick={(e) => handleClick('createJob')}>
+                                        <BsPencil />
+                                        Créer
+                                    </button> */}
+                                </div>
                             </div>
-                            <div className="admincardnumber">
-                                <p>Identifiant Job: {appli.JobId}</p> 
-                            </div>
-                            <div className="buttoncard">
-                                <DeleteButton id={appli.Id} page={'application'}/>
-                                {/* <button className="btn-admin-post" onClick={(e) => handleClick('createJob')}>
-                                    <BsPencil />
-                                    Créer
-                                </button> */}
-                            </div>
-                        </div>
-                    
                     ))}
                     </>
                 )}
@@ -220,15 +232,8 @@ export default function Admin({profileData, applicationData, jobData}) {
                 <CreateForm page={'profile'}/>
             )}
             {createJob && (
-                <CreateForm page={'job'}/>
+                <CreateForm page={'job'} user={user}/>
             )}
-            {modifyJob &&(
-                <ModifyForm  page={'job'}/>
-            )}
-            {modifyProfile &&(
-                <ModifyForm  page={'profile'}/>
-            )}
-
         </div>
     </div>
   )
